@@ -3,31 +3,52 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-accent-primary: theme('colors.accentPrimary');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-content {
+  display: inline-flex;
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
+
+/* Set default text color */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: "#101010"
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.underline-effect {
+  @apply inline-block relative;
+}
+
+.underline-effect::after {
+  content: '';
+  background: var(--color-accent-primary);
+  position: absolute;
+  display: block;
+  z-index: -1;
+  width: 100%;
+  height: 1.2rem;
+  margin-top: -1.2rem;
+  margin-left: 0.4rem;
 }

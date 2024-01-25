@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        customBackground: "#F2F3EC",
+        customBackgroundSecondary: "#FCFDF8",
+        customText: "#101010",
+        matteBlack: "#101010",
+        accentPrimary: "#A0CEC8",
+        accentSecondary: "#F7D89A",
+      },
+      keyframes: {
+        "scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        "scroll-left": "scroll-left 20s linear infinite",
       },
     },
   },
