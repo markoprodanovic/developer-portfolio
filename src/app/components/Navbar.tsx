@@ -8,7 +8,7 @@ export const Navbar = () => (
       <Link href="/contact">
         <p className="font-bold text-lg hover:text-btnHighlight">Contact</p>
       </Link>
-      <Link href="/resume">
+      <Link href="/resume.pdf">
         <p className="font-bold text-lg hover:text-btnHighlight">Resume</p>
       </Link>
     </div>
