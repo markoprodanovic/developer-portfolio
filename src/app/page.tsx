@@ -56,7 +56,7 @@ export default async function Home() {
         className="absolute top-20 right-0"
         style={{ transform: "translate(50px, 290px)" }}
       />
-      <div className="mt-12 grid sm:grid-cols-2 gap-6">
+      <div className="mt-12 mx-auto max-w-lg lg:max-w-none grid grid-cols-1 gap-6">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}

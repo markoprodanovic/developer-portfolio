@@ -14,7 +14,7 @@ export function GET() {
         "Python tool that can automatically brand video content with custom intro/outro/watermark. Implemented at UBC Sauder as faculty-facing video post-production service  (processed over 850 videos since launch in August 2020).",
       githubLink: "https://github.com/markoprodanovic/automated-video-brander",
       demoLink: "",
-      stack: ["Python", "ffmpeg", "Panopto SOAP API", "Panopto REST API"],
+      stack: ["Python", "ffmpeg", "SOAP API", "REST API"],
     },
     {
       title: "GitHub Issue Explorer",

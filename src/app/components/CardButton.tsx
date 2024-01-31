@@ -6,12 +6,12 @@ type CardButtonProps = {
 export const CardButton = ({ text, href }: CardButtonProps) => {
   return (
     <a
-      className="border border-matteBlack py-3.5 rounded-lg text-center bg-customBackgroundSecondary hover:bg-gray-100 shadow-sm"
+      className="p-1.5 rounded-lg text-center text-lg bg-customBackgroundSecondary hover:bg-gray-100"
       style={{ transition: "all 0.3s ease" }}
       href={href}
       target="_blank"
     >
-      <p className="font-bold">{text}</p>
+      <p className="font-bold">{text + " >"}</p>
     </a>
   );
 };
