@@ -5,6 +5,9 @@ export const Navbar = () => (
   <div className="flex justify-between">
     <Image src="top-left-rule.svg" width={60} height={60} alt="Top left rule" />
     <div className="flex space-x-8">
+      <Link href="/">
+        <p className="font-bold text-lg hover:text-btnHighlight">Home</p>
+      </Link>
       <Link href="/contact">
         <p className="font-bold text-lg hover:text-btnHighlight">Contact</p>
       </Link>

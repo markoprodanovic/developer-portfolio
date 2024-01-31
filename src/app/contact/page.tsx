@@ -28,7 +28,6 @@ const Contact: NextPage = () => {
 
   return (
     <div>
-      <Link href="/">Go to home</Link>
       <div className="mx-10">
         <section>
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
