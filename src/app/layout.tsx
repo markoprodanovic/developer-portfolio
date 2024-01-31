@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-customBackground">
       <body className={`${manrope.className} text-customText`}>
-        <div className="max-w-[1048px] min-w-[480px] mx-auto px-4 pt-16">
+        <div className="max-w-[1048px] min-w-[320px] mx-auto px-4 pt-16">
           <Navbar />
           {children}
           <Footer />
