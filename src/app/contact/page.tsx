@@ -4,18 +4,26 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { sendEmail } from "../utils/sendEmail";
+import { useRouter } from "next/navigation";
 
 export type FormData = {
+  name: string;
   email: string;
-  subject: string;
   message: string;
 };
 
 const Contact: NextPage = () => {
   const { register, handleSubmit } = useForm<FormData>();
+  const router = useRouter();
 
-  const onSubmit = (data: FormData) => {
-    sendEmail(data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await sendEmail(data);
+      router.push("/");
+      alert(response.message);
+    } catch (err) {
+      alert(err);
+    }
   };
 
   return (
@@ -30,6 +38,21 @@ const Contact: NextPage = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               <div>
                 <label
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-matteBlack"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="shadow-sm bg-customBackgroundSecondary border border-gray-300 text-matteBlack text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Archie"
+                  {...register("name", { required: true })}
+                />
+              </div>
+              <div>
+                <label
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-matteBlack"
                 >
@@ -39,23 +62,8 @@ const Contact: NextPage = () => {
                   type="email"
                   id="email"
                   className="shadow-sm bg-customBackgroundSecondary border border-gray-300 text-matteBlack text-sm rounded-lg block w-full p-2.5"
-                  placeholder="name@gmail.com"
+                  placeholder="Enter Email address..."
                   {...register("email", { required: true })}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block mb-2 text-sm font-medium text-matteBlack"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  className="shadow-sm bg-customBackgroundSecondary border border-gray-300 text-matteBlack text-sm rounded-lg block w-full p-2.5"
-                  placeholder="What do you wanna talk about?"
-                  {...register("subject", { required: true })}
                 />
               </div>
               <div className="sm:col-span-2">
