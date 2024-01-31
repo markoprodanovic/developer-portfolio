@@ -6,10 +6,10 @@ export const Navbar = () => (
     <Image src="top-left-rule.svg" width={60} height={60} alt="Top left rule" />
     <div className="flex space-x-8">
       <Link href="/contact">
-        <p className="font-bold text-lg">Contact</p>
+        <p className="font-bold text-lg hover:text-btnHighlight">Contact</p>
       </Link>
       <Link href="/resume">
-        <p className="font-bold text-lg">Resume</p>
+        <p className="font-bold text-lg hover:text-btnHighlight">Resume</p>
       </Link>
     </div>
   </div>

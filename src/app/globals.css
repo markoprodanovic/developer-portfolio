@@ -28,7 +28,8 @@
 
 /* Set default text color */
 body {
-  color: "#101010"
+  color: "#101010";
+  box-sizing: "border-box";
 }
 
 @layer utilities {

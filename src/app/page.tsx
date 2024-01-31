@@ -1,44 +1,29 @@
-import Link from "next/link";
-import { ToolBadge } from "@/components/ToolBadge";
+import { ProjectCard } from "@/app/components/ProjectCard";
+import { ToolBadge } from "@/app/components/ToolBadge";
+import { Project } from "./api/projects/route";
+import { Footer } from "./components/Footer";
 import Image from "next/image";
 
-const TOOLS = [
-  "TypeScript",
-  "JavaScript",
-  "Python",
-  "Go",
-  "React Native",
-  "React",
-  "Node.js",
-  "Next.js",
-  "Tailwind",
-  "SQLite",
-];
+async function getTools() {
+  const res = await fetch(`${process.env.URL}/api/tools`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch tools");
+  }
+  return res.json();
+}
 
-const projects = [
-  {
-    title: "GitHub Issue Explorer",
-    description:
-      "A tool for exploring GitHub issues in a specific repo. Paste in a GitHub repo URL to see all issues. Filter by open, closed and pull requests.",
-  },
-  {
-    title: "Python Automated Video Brander",
-    description:
-      "Python tool that can automatically brand video content with custom intro/outro/watermark. Implemented at UBC Sauder as faculty-facing video post-production service (processed over 850 videos since launch in August 2020).",
-  },
-  {
-    title: "(N)app",
-    description:
-      "A just-for-fun, not-applicable application (or 'napp'). This site is where I create tools and widgets to explore programming and design concepts.",
-  },
-  {
-    title: "The Archies",
-    description:
-      "A fictional movie nomination platform lovingly named after my cat Archie. Seach for your favourite films and customize your nomination list up to 5 movies.",
-  },
-];
+async function getProjects() {
+  const res = await fetch(`${process.env.URL}/api/projects`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch projects");
+  }
+  return res.json();
+}
 
-export default function Home() {
+export default async function Home() {
+  const tools: string[] = await getTools();
+  const projects: Project[] = await getProjects();
+
   return (
     <main className="mx-10 relative">
       <h1 className="text-6xl font-bold mb-3">Marko Prodanovic</h1>
@@ -51,10 +36,10 @@ export default function Home() {
       </p>
       <div className="scroll-container">
         <div className="scroll-content space-x-4">
-          {TOOLS.map((tool, index) => (
+          {tools.map((tool: string, index: number) => (
             <ToolBadge key={index} text={tool} />
           ))}
-          {TOOLS.map((tool, index) => (
+          {tools.map((tool: string, index: number) => (
             <ToolBadge key={`duplicate-${index}`} text={tool} />
           ))}
         </div>
@@ -69,23 +54,13 @@ export default function Home() {
         height={159}
         alt="Top left rule"
         className="absolute top-20 right-0"
-        style={{ transform: "translate(40px, 290px)" }}
+        style={{ transform: "translate(50px, 290px)" }}
       />
-      <div className="mt-12 grid grid-cols-2 gap-4">
+      <div className="mt-12 grid sm:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <div
-            key={index}
-            className="border border-matteBlack bg-customBackgroundSecondary shadow-lg rounded-2xl flex flex-column overflow-hidden"
-          >
-            <div className="bg-accentSecondary w-8 h-full" />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mt-2">{project.title}</h4>
-              <p className="text-sm text-gray-600">{project.description}</p>
-            </div>
-          </div>
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
-      <div className="grid grid-templa mt-10"></div>
     </main>
   );
 }

@@ -15,6 +15,7 @@ const config: Config = {
         matteBlack: "#101010",
         accentPrimary: "#A0CEC8",
         accentSecondary: "#F7D89A",
+        btnHighlight: "#3B9286",
       },
       keyframes: {
         "scroll-left": {
