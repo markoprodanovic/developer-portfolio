@@ -1,29 +1,10 @@
 import { ProjectCard } from "@/app/components/ProjectCard";
 import { ToolBadge } from "@/app/components/ToolBadge";
-import { Project } from "./api/projects/route";
-import { getBaseUrl } from "./utils/getBaseUrl";
+import { projects } from "./data/projects";
+import { tools } from "./data/tools";
 import Image from "next/image";
 
-async function getTools() {
-  const res = await fetch(`${getBaseUrl()}/api/tools`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch tools");
-  }
-  return res.json();
-}
-
-async function getProjects() {
-  const res = await fetch(`${getBaseUrl()}/api/projects`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch projects");
-  }
-  return res.json();
-}
-
 export default async function Home() {
-  const tools: string[] = await getTools();
-  const projects: Project[] = await getProjects();
-
   return (
     <main className="mt-4 sm:mt-0 mx-4 sm:mx-10 relative">
       <h1 className="text-4xl sm:text-6xl font-bold mb-3">Marko Prodanovic</h1>

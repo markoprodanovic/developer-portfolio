@@ -1,4 +1,4 @@
-import { Project } from "../api/projects/route";
+import { Project } from "../data/projects";
 import { CardButton } from "./CardButton";
 
 type ProjectCardProps = {

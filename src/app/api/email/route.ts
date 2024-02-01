@@ -1,42 +1,23 @@
-import { type NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
+import sendgrid from "@sendgrid/mail";
+import { NextRequest, NextResponse } from "next/server";
+
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json();
 
-  const transport = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.APP_PASSWORD,
-    },
-  });
-
-  const mailOptions: Mail.Options = {
-    from: process.env.EMAIL,
-    to: process.env.EMAIL,
-    subject: `Message from ${name} (${email})`,
-    text: message,
-  };
-
-  const sendMailPromise = () =>
-    new Promise<string>((resolve, reject) => {
-      transport.sendMail(mailOptions, function (err) {
-        if (!err) {
-          resolve("Email sent");
-        } else {
-          reject(err.message);
-        }
-      });
-    });
-
   try {
-    await sendMailPromise();
+    await sendgrid.send({
+      to: process.env.EMAIL!,
+      from: process.env.EMAIL!,
+      subject: `Message from ${name} (${email})`,
+      html: `<div>${message}</div>`,
+    });
     return NextResponse.json({
       message: "Message sent. I'll get back to you soon!",
     });
   } catch (err) {
+    console.log(err);
     return NextResponse.json({ error: err }, { status: 500 });
   }
 }

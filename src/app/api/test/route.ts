@@ -1,3 +1,5 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+
 export function GET() {
   const tools = [
     "TypeScript",
