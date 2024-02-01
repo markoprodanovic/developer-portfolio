@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       to: process.env.EMAIL!,
       from: process.env.EMAIL!,
       subject: `Message from ${name} (${email})`,
-      text: `<div>${message}</div>`,
+      html: `<div>${message}</div>`,
     });
     return NextResponse.json({
       message: "Message sent. I'll get back to you soon!",
