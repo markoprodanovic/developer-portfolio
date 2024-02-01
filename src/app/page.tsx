@@ -5,9 +5,10 @@ import { getBaseUrl } from "./utils/getBaseUrl";
 import Image from "next/image";
 
 async function getTools() {
-  const res = await fetch(`${getBaseUrl()}/api/tools`);
+  const url = `${getBaseUrl()}/api/tools`;
+  const res = await fetch(url);
   if (!res.ok) {
-    throw new Error("Failed to fetch tools");
+    throw new Error(`Failed to fetch tools from URL: ${url}`);
   }
   return res.json();
 }
