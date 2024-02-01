@@ -11,7 +11,7 @@ export function GET() {
     {
       title: "Python Automated Video Brander",
       description:
-        "Python tool that can automatically brand video content with custom intro/outro/watermark. Implemented at UBC Sauder as faculty-facing video post-production service  (processed over 850 videos since launch in August 2020).",
+        "Python tool that can automatically brand video content with custom intro/outro/watermark. Implemented at UBC Sauder as faculty-facing video post-production service  (processed over 900 videos since launch in August 2020).",
       githubLink: "https://github.com/markoprodanovic/automated-video-brander",
       demoLink: "",
       stack: ["Python", "ffmpeg", "SOAP API", "REST API"],

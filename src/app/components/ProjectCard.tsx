@@ -11,8 +11,10 @@ export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
       <div className="w-full lg:basis-1/3 bg-blue-400 rounded-lg aspect-square mr-0 lg:mr-8 mb-8 lg:mb-0" />
       <div className="flex flex-col justify-between w-full">
         <div className="flex flex-col">
-          <h4 className="text-2xl font-bold mb-4">{project.title}</h4>
-          <div className="flex flex-row gap-3 mb-6 flex-wrapj">
+          <h4 className="text-xl sm:text-2xl font-bold mb-4">
+            {project.title}
+          </h4>
+          <div className="flex flex-row gap-3 mb-6 flex-wrap">
             {project.stack.map((t, index) => (
               <div
                 key={index}
