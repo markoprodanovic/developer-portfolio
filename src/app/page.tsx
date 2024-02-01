@@ -4,7 +4,7 @@ import { Project } from "./api/projects/route";
 import Image from "next/image";
 
 async function getTools() {
-  const url = `${process.env.NEXT_PUBLIV_VERCEL_URL}/api/tools`;
+  const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tools`;
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error(
