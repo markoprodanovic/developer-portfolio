@@ -8,7 +8,7 @@ async function getTools() {
   const url = `${getBaseUrl()}/api/tools`;
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Failed to fetch tools from URL: ${url}`);
+    throw new Error(`Failed to fetch tools from URL: ${url}. RES: ${res}`);
   }
   return res.json();
 }
