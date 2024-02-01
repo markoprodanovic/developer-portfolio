@@ -1,10 +1,11 @@
 import { ProjectCard } from "@/app/components/ProjectCard";
 import { ToolBadge } from "@/app/components/ToolBadge";
 import { Project } from "./api/projects/route";
+import { getBaseUrl } from "./utils/getBaseURL";
 import Image from "next/image";
 
 async function getTools() {
-  const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tools`;
+  const url = `${getBaseUrl()}/api/tools`;
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error(
@@ -15,7 +16,7 @@ async function getTools() {
 }
 
 async function getProjects() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/projects`);
+  const res = await fetch(`${getBaseUrl()}/api/projects`);
   if (!res.ok) {
     throw new Error("Failed to fetch projects");
   }
