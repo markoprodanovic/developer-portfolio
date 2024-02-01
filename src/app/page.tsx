@@ -1,10 +1,11 @@
 import { ProjectCard } from "@/app/components/ProjectCard";
 import { ToolBadge } from "@/app/components/ToolBadge";
 import { Project } from "./api/projects/route";
+import { getBaseUrl } from "./utils/getBaseUrl";
 import Image from "next/image";
 
 async function getTools() {
-  const res = await fetch(`${process.env.URL}/api/tools`);
+  const res = await fetch(`${getBaseUrl()}/api/tools`);
   if (!res.ok) {
     throw new Error("Failed to fetch tools");
   }
@@ -12,7 +13,7 @@ async function getTools() {
 }
 
 async function getProjects() {
-  const res = await fetch(`${process.env.URL}/api/projects`);
+  const res = await fetch(`${getBaseUrl()}/api/projects`);
   if (!res.ok) {
     throw new Error("Failed to fetch projects");
   }
