@@ -5,7 +5,10 @@ export const Footer = () => {
   return (
     <div className="mx-10 mt-8 flex justify-center mb-6 md:justify-end">
       <div className="flex flex-col items-center md:items-end">
-        <a href="#" className="font-bold hover:text-btnHighlight">
+        <a
+          href="https://github.com/markoprodanovic/developer-portfolio"
+          className="font-bold hover:text-btnHighlight"
+        >
           - Designed & Built by Marko -
         </a>
         <div className="flex gap-2 mt-4">
