@@ -1,4 +1,4 @@
-# Software Enginerring Portfolio
+# Software Engineering Portfolio
 
 - Next.js
 - Tailwind
