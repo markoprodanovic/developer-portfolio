@@ -7,6 +7,7 @@ export const Footer = () => {
       <div className="flex flex-col items-center md:items-end">
         <a
           href="https://github.com/markoprodanovic/developer-portfolio"
+          target="_blank"
           className="font-bold hover:text-btnHighlight"
         >
           - Designed & Built by Marko -
