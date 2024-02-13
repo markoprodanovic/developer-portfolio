@@ -1,5 +1,6 @@
 import { Project } from "../data/projects";
 import { CardButton } from "./CardButton";
+import Image from "next/image";
 
 type ProjectCardProps = {
   project: Project;
@@ -7,8 +8,14 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
   return (
-    <div className="flex flex-col lg:flex-row bg-customBackgroundSecondary shadow-lg rounded-2xl p-5">
-      <div className="w-full lg:basis-1/3 bg-blue-400 rounded-lg aspect-square mr-0 lg:mr-8 mb-8 lg:mb-0" />
+    <div className="flex flex-col lg:flex-row bg-customBackground p-5 border-b-2">
+      <Image
+        src={project.imgPath} // Update this path to the actual image location in your public folder
+        alt="Project Image"
+        width="400"
+        height="400"
+        className="w-full lg:basis-1/3 rounded-lg aspect-square mr-0 lg:mr-8 mb-8 lg:mb-0"
+      />
       <div className="flex flex-col justify-between w-full">
         <div className="flex flex-col">
           <h4 className="text-xl sm:text-2xl font-bold mb-4">
@@ -18,9 +25,9 @@ export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
             {project.stack.map((t, index) => (
               <div
                 key={index}
-                className="bg-customBackground rounded-full py-1 px-3 border"
+                className="bg-matteBlack rounded-full py-1 px-3 border"
               >
-                <p className="text-sm font-bold">{t}</p>
+                <p className="text-sm text-customBackground font-bold">{t}</p>
               </div>
             ))}
           </div>
