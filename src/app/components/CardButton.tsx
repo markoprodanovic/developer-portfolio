@@ -6,8 +6,7 @@ type CardButtonProps = {
 export const CardButton = ({ text, href }: CardButtonProps) => {
   return (
     <a
-      className="p-1.5 rounded-lg text-center text-lg bg-customBackgroundSecondary hover:bg-gray-100"
-      style={{ transition: "all 0.3s ease" }}
+      className="p-1.5 text-center text-lg bg-customBackground link-underline"
       href={href}
       target="_blank"
     >

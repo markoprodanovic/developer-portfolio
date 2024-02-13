@@ -6,13 +6,13 @@ export const Navbar = () => (
     <Image src="top-left-rule.svg" width={60} height={60} alt="Top left rule" />
     <div className="flex space-x-8">
       <Link href="/">
-        <p className="font-bold text-lg hover:text-btnHighlight">Home</p>
+        <p className="font-bold text-lg link-underline">Home</p>
       </Link>
       <Link href="/contact">
-        <p className="font-bold text-lg hover:text-btnHighlight">Contact</p>
+        <p className="font-bold text-lg link-underline">Contact</p>
       </Link>
       <Link href="/resume.pdf">
-        <p className="font-bold text-lg hover:text-btnHighlight">Resume</p>
+        <p className="font-bold text-lg link-underline">Resume</p>
       </Link>
     </div>
   </div>
