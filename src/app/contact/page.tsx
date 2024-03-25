@@ -76,7 +76,7 @@ const Contact: NextPage = () => {
                   id="message"
                   rows={6}
                   className="block p-2.5 w-full text-sm text-matteBlack bg-customBackgroundSecondary rounded-lg shadow-sm border border-gray-300"
-                  placeholder="Tyle your message..."
+                  placeholder="Type your message..."
                   {...register("message", { required: true })}
                 ></textarea>
               </div>
