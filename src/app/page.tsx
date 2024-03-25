@@ -12,7 +12,11 @@ export default async function Home() {
         Software Developer
       </h2>
       <p className="text-md sm:text-lg mb-8">
-        I design and build apps for web and mobile
+        I am a software developer with 3 years of experience spanning frontend
+        development, data analytics/visualization and backend development. I
+        specialize in frontend engineering for web and mobile with expertise in
+        the entire development cycle including UI design, code implementation,
+        testing and deployment.
       </p>
       <p className="text-md sm:text-lg font-bold mb-4">
         Tools I’ve been working with lately:
