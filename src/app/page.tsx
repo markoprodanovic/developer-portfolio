@@ -12,7 +12,7 @@ export default async function Home() {
         Software Developer
       </h2>
       <p className="text-md sm:text-lg mb-8">
-        I am a software developer with 4 years of experience spanning frontend
+        I am a software developer with 3 years of experience spanning frontend
         development, data analytics/visualization and backend development. I
         specialize in frontend engineering for web and mobile with expertise in
         the entire development cycle including UI design, code implementation,
