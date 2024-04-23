@@ -11,9 +11,6 @@ export const Navbar = () => (
       <Link href="/contact">
         <p className="font-bold text-lg link-underline">Contact</p>
       </Link>
-      <Link href="/MarkoProdanovic_Resume.pdf">
-        <p className="font-bold text-lg link-underline">Resume</p>
-      </Link>
     </div>
   </div>
 );
