@@ -1,16 +1,19 @@
 import { FormData } from "../contact/page";
 
 export async function sendEmail(data: FormData) {
-  const apiEndpoint = "api/email";
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+      subject: `Message from ${data.name} (${data.email})`,
+      from_name: data.name,
+      ...data,
+    }),
+  });
 
-  try {
-    const res = await fetch(apiEndpoint, {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
-    const json = await res.json();
-    return json;
-  } catch (err) {
-    return err;
-  }
+  return res.json();
 }
